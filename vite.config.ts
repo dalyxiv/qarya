@@ -1,16 +1,22 @@
-import { defineConfig } from '@tanstack/start/config'
+import { defineConfig } from "vite";
+import { TanStackStartVite } from "@tanstack/start/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  server: {
-    preset: 'github-pages',
-    prerender: {
-      // Tells the builder to generate a static index.html for the home page
-      routes: ['/'], 
-      // Automatically finds and generates static pages for any other linked routes
-      crawlLinks: true 
-    }
-  },
-  vite: {
-    base: '/qarya/'
-  }
-})
+  plugins: [
+    TanStackStartVite({
+      server: {
+        // Tells the Nitro backend to format for GitHub Pages
+        preset: "github-pages", 
+        prerender: {
+          // Forces the builder to actually generate your index.html
+          routes: ["/"],
+          crawlLinks: true,
+        },
+      },
+    }),
+    tsconfigPaths(),
+  ],
+  // Ensures assets load correctly on your github.io/qarya/ subpath
+  base: "/qarya/", 
+});
