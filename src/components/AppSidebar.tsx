@@ -27,14 +27,14 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="border-b">
+      <SidebarHeader className="border-b border-white/5">
         <div className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-[color-mix(in_oklab,var(--primary)_60%,var(--hybrid))] text-primary-foreground font-bold shadow-[0_0_25px_-4px_var(--primary)]">
             Q
           </div>
           {!collapsed && (
             <div className="flex flex-col leading-tight">
-              <span className="text-sm font-bold tracking-wider">QARYA</span>
+              <span className="text-sm font-bold tracking-[0.2em] bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">QARYA</span>
               <span className="text-[10px] text-muted-foreground">Hybrid Intelligence</span>
             </div>
           )}
