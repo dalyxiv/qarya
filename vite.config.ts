@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
-// ... your other imports
+import { defineConfig } from '@tanstack/start/config'
 
 export default defineConfig({
-  base: '/qarya/', 
-  // ... your plugins and other config
+  server: {
+    preset: 'github-pages'
+  }
 })
