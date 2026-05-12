@@ -32,10 +32,10 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Upload artifact
+- name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Vite outputs to 'dist' by default
+          path: ./.output/public
 
   deploy:
     environment:
