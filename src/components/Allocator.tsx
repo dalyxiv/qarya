@@ -1,4 +1,12 @@
 import { useMemo, useState } from "react";
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  ResponsiveContainer,
+} from "recharts";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
@@ -9,7 +17,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Info, Brain, Cpu, Sparkles } from "lucide-react";
-import { AllocatorTriangle } from "@/components/AllocatorTriangle";
 
 type Params = {
   empathy: number;
@@ -107,6 +114,14 @@ export function Allocator() {
     },
   }[winner];
 
+  const radarData = [
+    { axis: "Empathy", value: params.empathy },
+    { axis: "Concept-Space", value: params.concept },
+    { axis: "Optimization", value: params.optimization },
+    { axis: "Speed", value: params.speed },
+    { axis: "Budget", value: params.budget },
+  ];
+
   const WinnerIcon = winnerMeta.icon;
 
   return (
@@ -195,10 +210,34 @@ export function Allocator() {
 
           <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
             <CardHeader>
-              <CardTitle>AI vs. Human Design Allocator</CardTitle>
+              <CardTitle>Task Footprint</CardTitle>
             </CardHeader>
             <CardContent>
-              <AllocatorTriangle alloc={alloc} winner={winner} justification={winnerMeta.text} />
+              <div className="h-[320px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart data={radarData} outerRadius="75%">
+                    <PolarGrid stroke="var(--border)" />
+                    <PolarAngleAxis
+                      dataKey="axis"
+                      tick={{ fill: "var(--muted-foreground)", fontSize: 12 }}
+                    />
+                    <PolarRadiusAxis
+                      angle={90}
+                      domain={[0, 100]}
+                      tick={{ fill: "var(--muted-foreground)", fontSize: 10 }}
+                    />
+                    <Radar
+                      name="Task"
+                      dataKey="value"
+                      stroke="var(--primary)"
+                      fill="var(--primary)"
+                      fillOpacity={0.35}
+                      isAnimationActive
+                      animationDuration={400}
+                    />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
             </CardContent>
           </Card>
         </div>
