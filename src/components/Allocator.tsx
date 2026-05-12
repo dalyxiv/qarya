@@ -128,7 +128,7 @@ export function Allocator() {
     <TooltipProvider delayDuration={150}>
       <div className="grid gap-6 lg:grid-cols-2">
         {/* INPUTS */}
-        <Card className="h-fit">
+        <Card className="h-fit shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
           <CardHeader>
             <CardTitle>Project Parameters</CardTitle>
           </CardHeader>
@@ -167,21 +167,22 @@ export function Allocator() {
 
         {/* OUTPUTS */}
         <div className="space-y-6">
-          <Card>
+          <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
             <CardHeader>
               <CardTitle>Recommended Allocation</CardTitle>
             </CardHeader>
             <CardContent className="space-y-5">
               <div
-                className="flex items-center gap-3 rounded-lg border p-4"
+                className="flex items-center gap-3 rounded-lg border p-4 transition-all duration-500"
                 style={{
                   borderColor: winnerMeta.color,
-                  backgroundColor: `color-mix(in oklab, ${winnerMeta.color} 8%, transparent)`,
+                  backgroundImage: `linear-gradient(135deg, color-mix(in oklab, ${winnerMeta.color} 18%, transparent), transparent)`,
+                  boxShadow: `0 0 0 1px ${winnerMeta.color}, 0 0 50px -8px color-mix(in oklab, ${winnerMeta.color} 70%, transparent), inset 0 1px 0 color-mix(in oklab, ${winnerMeta.color} 25%, transparent)`,
                 }}
               >
                 <WinnerIcon
-                  className="h-6 w-6"
-                  style={{ color: winnerMeta.color }}
+                  className="h-7 w-7"
+                  style={{ color: winnerMeta.color, filter: `drop-shadow(0 0 8px ${winnerMeta.color})` }}
                 />
                 <div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">
@@ -207,7 +208,7 @@ export function Allocator() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
             <CardHeader>
               <CardTitle>Task Footprint</CardTitle>
             </CardHeader>
@@ -262,10 +263,14 @@ function AllocBar({
           {value.toFixed(1)}%
         </span>
       </div>
-      <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted">
+      <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted/60 ring-1 ring-white/5">
         <div
           className="h-full rounded-full transition-[width] duration-500 ease-out"
-          style={{ width: `${value}%`, backgroundColor: color }}
+          style={{
+            width: `${value}%`,
+            backgroundImage: `linear-gradient(90deg, color-mix(in oklab, ${color} 70%, transparent), ${color})`,
+            boxShadow: `0 0 12px ${color}, 0 0 4px ${color}`,
+          }}
         />
       </div>
     </div>
