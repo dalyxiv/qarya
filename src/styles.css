@@ -61,6 +61,12 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@theme inline {
+  --color-human: var(--human);
+  --color-ai: var(--ai);
+  --color-hybrid: var(--hybrid);
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
