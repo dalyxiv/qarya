@@ -1,9 +1,9 @@
-name: Deploy Vite with Bun to GitHub Pages
+name: Deploy TanStack Start to GitHub Pages
 
 on:
   push:
     branches: ["main"]
-  workflow_dispatch: # Allows you to trigger this manually if needed
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -32,10 +32,11 @@ jobs:
       - name: Build project
         run: bun run build
 
-- name: Upload artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          # This targets the correct folder for TanStack static exports
+          path: ./.output/public 
 
   deploy:
     environment:
