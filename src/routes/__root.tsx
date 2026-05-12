@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Qarya" },
+      { name: "description", content: "Qarya Allocator is a dashboard app for the machinery sector that intelligently assigns industrial design tasks." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Qarya" },
+      { property: "og:description", content: "Qarya Allocator is a dashboard app for the machinery sector that intelligently assigns industrial design tasks." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Qarya" },
+      { name: "twitter:description", content: "Qarya Allocator is a dashboard app for the machinery sector that intelligently assigns industrial design tasks." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e838551-3be6-44f8-81d8-e56153c3aaa9/id-preview-20472804--cf9f2f2d-06ef-40c8-a785-1e39039b99a1.lovable.app-1778590021983.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0e838551-3be6-44f8-81d8-e56153c3aaa9/id-preview-20472804--cf9f2f2d-06ef-40c8-a785-1e39039b99a1.lovable.app-1778590021983.png" },
     ],
     links: [
       {
