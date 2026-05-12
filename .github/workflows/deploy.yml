@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This targets the correct folder for TanStack static exports
+          # Targets the generated static HTML folder from TanStack Start
           path: ./.output/public 
 
   deploy:
