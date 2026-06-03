@@ -1,8 +1,11 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { LayoutDashboard, FolderKanban, Users, BarChart3, Settings } from "lucide-react";
+import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
+import lexelLogo from "@/assets/lexel-logo.png.asset.json";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
@@ -29,8 +32,8 @@ export function AppSidebar() {
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-white/5">
         <div className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-gradient-to-br from-primary to-[color-mix(in_oklab,var(--primary)_60%,var(--hybrid))] text-primary-foreground font-bold shadow-[0_0_25px_-4px_var(--primary)]">
-            Q
+          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white p-1 shadow-[0_0_25px_-4px_var(--primary)]">
+            <img src={eldalyLogo.url} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
           {!collapsed && (
             <div className="flex flex-col leading-tight">
@@ -61,6 +64,23 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="border-t border-white/5">
+        {!collapsed ? (
+          <div className="px-2 py-3 space-y-2">
+            <div className="flex items-center gap-2">
+              <span className="text-[9px] uppercase tracking-widest text-muted-foreground">A product of</span>
+            </div>
+            <img src={lexelLogo.url} alt="LEXEL" className="h-6 w-auto object-contain opacity-90" />
+            <div className="text-[9px] font-mono text-muted-foreground/70 pt-1">
+              Developed by DALY · 2026 : 314
+            </div>
+          </div>
+        ) : (
+          <div className="px-2 py-3">
+            <img src={lexelLogo.url} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
+          </div>
+        )}
+      </SidebarFooter>
     </Sidebar>
   );
 }

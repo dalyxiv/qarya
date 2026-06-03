@@ -17,6 +17,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Info, Brain, Cpu, Sparkles } from "lucide-react";
+import { NeuralNetwork } from "./NeuralNetwork";
 
 type Params = {
   empathy: number;
@@ -65,11 +66,14 @@ function computeAllocation(p: Params) {
   const hybrid =
     p.empathy * 0.8 + p.concept * 0.8 + p.optimization * 0.8 + p.speed * 0.8;
   const total = human + ai + hybrid;
-  if (total === 0) return { human: 0, ai: 0, hybrid: 0 };
+  if (total === 0) return { human: 0, ai: 0, hybrid: 0, rawHuman: 0, rawAi: 0, rawHybrid: 0 };
   return {
     human: (human / total) * 100,
     ai: (ai / total) * 100,
     hybrid: (hybrid / total) * 100,
+    rawHuman: Math.min(1, human / 270),
+    rawAi: Math.min(1, ai / 350),
+    rawHybrid: Math.min(1, hybrid / 320),
   };
 }
 
@@ -127,7 +131,8 @@ export function Allocator() {
   return (
     <TooltipProvider delayDuration={150}>
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* INPUTS */}
+        {/* LEFT COLUMN */}
+        <div className="space-y-6">
         <Card className="h-fit shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
           <CardHeader>
             <CardTitle>Project Parameters</CardTitle>
@@ -164,6 +169,25 @@ export function Allocator() {
             ))}
           </CardContent>
         </Card>
+        <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
+          <CardHeader>
+            <CardTitle className="flex items-center justify-between">
+              <span>Neural Decision Network</span>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                live
+              </span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <NeuralNetwork
+              humanScore={alloc.rawHuman}
+              aiScore={alloc.rawAi}
+              hybridScore={alloc.rawHybrid}
+              winner={winner}
+            />
+          </CardContent>
+        </Card>
+        </div>
 
         {/* OUTPUTS */}
         <div className="space-y-6">
