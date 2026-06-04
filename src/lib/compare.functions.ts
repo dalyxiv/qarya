@@ -15,6 +15,7 @@ export type CompareResult = {
     estimatedDurationDays: number;
     strengths: string[];
     weaknesses: string[];
+    breakdown: { phase: string; hours: number; costUsd: number }[];
   };
   ai: {
     model: string;
@@ -24,6 +25,9 @@ export type CompareResult = {
     estimatedDurationMinutes: number;
     strengths: string[];
     weaknesses: string[];
+    breakdown: { phase: string; tokens: number; costUsd: number }[];
+    inputTokens: number;
+    outputTokens: number;
   };
   comparison: {
     costRatio: string;
@@ -34,6 +38,7 @@ export type CompareResult = {
   verdictHeadline: string;
   verdictReasoning: string;
   marketNote: string;
+  assumptions: string[];
 };
 
 export const compareHumanVsAi = createServerFn({ method: "POST" })
@@ -58,7 +63,10 @@ Return a JSON object with this exact shape:
     "totalCostUsd": number,
     "estimatedDurationDays": number,
     "strengths": string[3],
-    "weaknesses": string[2]
+    "weaknesses": string[2],
+    "breakdown": [                         // 3-5 phases that sum to estimatedHours/totalCostUsd
+       { "phase": string, "hours": number, "costUsd": number }
+    ]
   },
   "ai": {
     "model": string,                       // e.g. "GPT-class / Gemini Pro"
@@ -67,7 +75,12 @@ Return a JSON object with this exact shape:
     "totalCostUsd": number,
     "estimatedDurationMinutes": number,
     "strengths": string[3],
-    "weaknesses": string[2]
+    "weaknesses": string[2],
+    "inputTokens": number,
+    "outputTokens": number,
+    "breakdown": [                         // 3-5 phases summing to estimatedTokens/totalCostUsd
+       { "phase": string, "tokens": number, "costUsd": number }
+    ]
   },
   "comparison": {
     "costRatio": string,                   // e.g. "AI is 142x cheaper"
@@ -77,7 +90,8 @@ Return a JSON object with this exact shape:
   "verdict": "HUMAN" | "AI" | "HYBRID",
   "verdictHeadline": string,               // <= 8 words
   "verdictReasoning": string,              // 2-3 sentences
-  "marketNote": string                     // 1 sentence on current market rate basis
+  "marketNote": string,                    // 1 sentence on current market rate basis
+  "assumptions": string[4]                 // 4 concise assumptions (region, seniority, model tier, scope, etc.)
 }`;
 
     const res = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {

@@ -145,6 +145,17 @@ function Landing() {
               Enter the Allocator <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="gap-2 border-primary/40 bg-primary/5 backdrop-blur-md hover:bg-primary/10 shadow-[0_0_30px_-10px_var(--primary)]"
+          >
+            <Link to="/compare">
+              <Sparkles className="h-4 w-4" />
+              Human vs AI
+            </Link>
+          </Button>
           <Button asChild size="lg" variant="outline" className="border-white/10 bg-white/[0.02] backdrop-blur-md hover:bg-white/[0.06]">
             <a href="#how">See how it works</a>
           </Button>

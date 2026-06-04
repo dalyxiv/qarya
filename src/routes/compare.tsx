@@ -148,6 +148,108 @@ function ComparePage() {
                 </div>
               </CardContent>
             </Card>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-base">
+                    <Brain className="h-4 w-4" style={{ color: "var(--human)" }} />
+                    Human cost breakdown
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="text-[10px] uppercase tracking-widest text-muted-foreground border-b border-white/5">
+                        <th className="text-left font-normal py-2">Phase</th>
+                        <th className="text-right font-normal py-2">Hours</th>
+                        <th className="text-right font-normal py-2">Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {result.human.breakdown?.map((b, i) => (
+                        <tr key={i} className="border-b border-white/5 last:border-0">
+                          <td className="py-2">{b.phase}</td>
+                          <td className="py-2 text-right tabular-nums">{b.hours}h</td>
+                          <td className="py-2 text-right tabular-nums">${b.costUsd.toLocaleString()}</td>
+                        </tr>
+                      ))}
+                      <tr className="font-semibold">
+                        <td className="py-2">Total</td>
+                        <td className="py-2 text-right tabular-nums">{result.human.estimatedHours}h</td>
+                        <td className="py-2 text-right tabular-nums" style={{ color: "var(--human)" }}>
+                          ${result.human.totalCostUsd.toLocaleString()}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-base">
+                    <Cpu className="h-4 w-4" style={{ color: "var(--ai)" }} />
+                    AI cost breakdown
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="rounded-md bg-background/40 border border-white/5 p-2">
+                      <div className="text-muted-foreground">Input tokens</div>
+                      <div className="font-semibold tabular-nums">{result.ai.inputTokens?.toLocaleString() ?? "—"}</div>
+                    </div>
+                    <div className="rounded-md bg-background/40 border border-white/5 p-2">
+                      <div className="text-muted-foreground">Output tokens</div>
+                      <div className="font-semibold tabular-nums">{result.ai.outputTokens?.toLocaleString() ?? "—"}</div>
+                    </div>
+                  </div>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="text-[10px] uppercase tracking-widest text-muted-foreground border-b border-white/5">
+                        <th className="text-left font-normal py-2">Phase</th>
+                        <th className="text-right font-normal py-2">Tokens</th>
+                        <th className="text-right font-normal py-2">Cost</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {result.ai.breakdown?.map((b, i) => (
+                        <tr key={i} className="border-b border-white/5 last:border-0">
+                          <td className="py-2">{b.phase}</td>
+                          <td className="py-2 text-right tabular-nums">{b.tokens.toLocaleString()}</td>
+                          <td className="py-2 text-right tabular-nums">${b.costUsd.toFixed(2)}</td>
+                        </tr>
+                      ))}
+                      <tr className="font-semibold">
+                        <td className="py-2">Total</td>
+                        <td className="py-2 text-right tabular-nums">{result.ai.estimatedTokens.toLocaleString()}</td>
+                        <td className="py-2 text-right tabular-nums" style={{ color: "var(--ai)" }}>
+                          ${result.ai.totalCostUsd.toFixed(2)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </CardContent>
+              </Card>
+            </div>
+
+            {result.assumptions && result.assumptions.length > 0 && (
+              <Card className="shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
+                <CardHeader>
+                  <CardTitle className="text-base">Assumptions</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="grid gap-2 sm:grid-cols-2 text-sm text-muted-foreground">
+                    {result.assumptions.map((a, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="text-primary">▸</span>
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            )}
           </>
         )}
       </div>
