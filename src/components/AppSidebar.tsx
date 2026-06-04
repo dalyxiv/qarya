@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, FolderKanban, Users, BarChart3, Settings } from "lucide-react";
+import { LayoutDashboard, FolderKanban, Users, BarChart3, Settings, Scale } from "lucide-react";
 import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
 import lexelLogo from "@/assets/lexel-logo.png.asset.json";
 import {
@@ -20,6 +20,7 @@ const items = [
   { title: "Active Projects", url: "/projects", icon: FolderKanban },
   { title: "Resource Pool", url: "/resources", icon: Users },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
+  { title: "Human vs AI", url: "/compare", icon: Scale },
   { title: "Settings", url: "/settings", icon: Settings },
 ];
 
