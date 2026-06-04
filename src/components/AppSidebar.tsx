@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { LayoutDashboard, FolderKanban, Users, BarChart3, Settings, Scale } from "lucide-react";
 import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
 import lexelLogo from "@/assets/lexel-logo.png.asset.json";
+import uepLogo from "@/assets/uep-logo.png.asset.json";
 import {
   Sidebar,
   SidebarContent,
@@ -72,6 +73,13 @@ export function AppSidebar() {
               <span className="text-[9px] uppercase tracking-widest text-muted-foreground">A product of</span>
             </div>
             <img src={lexelLogo.url} alt="LEXEL" className="h-6 w-auto object-contain opacity-90" />
+            <div className="pt-2 border-t border-white/5">
+              <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Master Thesis</span>
+              <img src={uepLogo.url} alt="UEP" className="mt-1 h-5 w-auto object-contain opacity-80" />
+              <div className="text-[9px] text-muted-foreground/70 mt-1 leading-tight">
+                Poznań University of<br />Economics & Business
+              </div>
+            </div>
             <div className="text-[9px] font-mono text-muted-foreground/70 pt-1">
               Developed by DALY · 2026 : 314
             </div>
