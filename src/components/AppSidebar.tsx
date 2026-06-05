@@ -1,8 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { LayoutDashboard, FolderKanban, Users, BarChart3, Settings, Scale } from "lucide-react";
-import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
-import lexelLogo from "@/assets/lexel-logo.png.asset.json";
-import uepLogo from "@/assets/uep-logo.png.asset.json";
+import eldalyLogo from "@/assets/eldaly-logo.png";
+import lexelLogo from "@/assets/lexel-logo.png";
+import uepLogo from "@/assets/uep-logo.png";
 import {
   Sidebar,
   SidebarContent,
@@ -35,7 +35,7 @@ export function AppSidebar() {
       <SidebarHeader className="border-b border-white/5">
         <div className="flex items-center gap-2 px-2 py-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white p-1 shadow-[0_0_25px_-4px_var(--primary)]">
-            <img src={eldalyLogo.url} alt="Eldaly" className="h-full w-full object-contain" />
+            <img src={eldalyLogo} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
           {!collapsed && (
             <div className="flex flex-col leading-tight">
@@ -72,10 +72,10 @@ export function AppSidebar() {
             <div className="flex items-center gap-2">
               <span className="text-[9px] uppercase tracking-widest text-muted-foreground">A product of</span>
             </div>
-            <img src={lexelLogo.url} alt="LEXEL" className="h-6 w-auto object-contain opacity-90" />
+            <img src={lexelLogo} alt="LEXEL" className="h-6 w-auto object-contain opacity-90" />
             <div className="pt-2 border-t border-white/5">
               <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Master Thesis</span>
-              <img src={uepLogo.url} alt="UEP" className="mt-1 h-5 w-auto object-contain opacity-80" />
+              <img src={uepLogo} alt="UEP" className="mt-1 h-5 w-auto object-contain opacity-80" />
               <div className="text-[9px] text-muted-foreground/70 mt-1 leading-tight">
                 Poznań University of<br />Economics & Business
               </div>
@@ -86,7 +86,7 @@ export function AppSidebar() {
           </div>
         ) : (
           <div className="px-2 py-3">
-            <img src={lexelLogo.url} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
+            <img src={lexelLogo} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
           </div>
         )}
       </SidebarFooter>

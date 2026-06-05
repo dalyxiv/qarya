@@ -13,9 +13,9 @@ import {
   Zap,
   Layers,
 } from "lucide-react";
-import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
-import lexelLogo from "@/assets/lexel-logo.png.asset.json";
-import uepLogo from "@/assets/uep-logo.png.asset.json";
+import eldalyLogo from "@/assets/eldaly-logo.png";
+import lexelLogo from "@/assets/lexel-logo.png";
+import uepLogo from "@/assets/uep-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -66,7 +66,7 @@ function Landing() {
       <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
         <Link to="/" className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white p-1.5 shadow-[0_0_25px_-4px_var(--primary)]">
-            <img src={eldalyLogo.url} alt="Eldaly" className="h-full w-full object-contain" />
+            <img src={eldalyLogo} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-bold tracking-[0.25em] bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
@@ -113,7 +113,7 @@ function Landing() {
           custom={0}
           className="mx-auto mb-8 flex flex-col items-center gap-2"
         >
-          <img src={uepLogo.url} alt="Poznań University of Economics and Business" className="h-14 w-auto object-contain opacity-90" />
+          <img src={uepLogo} alt="Poznań University of Economics and Business" className="h-14 w-auto object-contain opacity-90" />
           <span className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
             Master Thesis Project · Poznań University of Economics & Business
           </span>
@@ -331,11 +331,11 @@ function Landing() {
       <footer className="relative z-10 border-t border-white/5 bg-card/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-muted-foreground md:flex-row">
           <div className="flex items-center gap-3">
-            <img src={lexelLogo.url} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
+            <img src={lexelLogo} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
             <span>A LEXEL company</span>
           </div>
           <div className="flex items-center gap-3 text-center">
-            <img src={uepLogo.url} alt="UEP" className="h-6 w-auto object-contain opacity-80" />
+            <img src={uepLogo} alt="UEP" className="h-6 w-auto object-contain opacity-80" />
             <span>Master Thesis · Poznań University of Economics & Business</span>
           </div>
           <div className="font-mono">Developed by DALY · 2026 : 314</div>
