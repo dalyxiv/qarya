@@ -13,7 +13,7 @@ export const Route = createFileRoute("/compare")({
   component: ComparePage,
   head: () => ({
     meta: [
-      { title: "Human vs AI — QARYA" },
+      { title: "Human vs AI | QARYA" },
       { name: "description", content: "Compare human and AI cost, speed and quality for any industrial design task." },
     ],
   }),
@@ -197,11 +197,11 @@ function ComparePage() {
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div className="rounded-md bg-background/40 border border-white/5 p-2">
                       <div className="text-muted-foreground">Input tokens</div>
-                      <div className="font-semibold tabular-nums">{result.ai.inputTokens?.toLocaleString() ?? "—"}</div>
+                      <div className="font-semibold tabular-nums">{result.ai.inputTokens?.toLocaleString() ?? "-"}</div>
                     </div>
                     <div className="rounded-md bg-background/40 border border-white/5 p-2">
                       <div className="text-muted-foreground">Output tokens</div>
-                      <div className="font-semibold tabular-nums">{result.ai.outputTokens?.toLocaleString() ?? "—"}</div>
+                      <div className="font-semibold tabular-nums">{result.ai.outputTokens?.toLocaleString() ?? "-"}</div>
                     </div>
                   </div>
                   <table className="w-full text-sm">

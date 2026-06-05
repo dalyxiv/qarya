@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, LineChart, L
 
 export const Route = createFileRoute("/analytics")({
   component: AnalyticsPage,
-  head: () => ({ meta: [{ title: "Analytics — QARYA" }] }),
+  head: () => ({ meta: [{ title: "Analytics | QARYA" }] }),
 });
 
 const allocByMonth = [

@@ -5,7 +5,7 @@ import { Brain, Cpu, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/resources")({
   component: ResourcesPage,
-  head: () => ({ meta: [{ title: "Resource Pool — QARYA" }] }),
+  head: () => ({ meta: [{ title: "Resource Pool | QARYA" }] }),
 });
 
 const pools = [
