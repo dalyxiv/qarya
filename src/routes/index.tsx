@@ -13,9 +13,9 @@ import {
   Zap,
   Layers,
 } from "lucide-react";
-import eldalyLogo from "@/assets/eldaly-logo.png.asset.json";
-import lexelLogo from "@/assets/lexel-logo.png.asset.json";
-import uepLogo from "@/assets/uep-logo.png.asset.json";
+import eldalyLogo from "@/assets/eldaly-logo.png";
+import lexelLogo from "@/assets/lexel-logo.png";
+import uepLogo from "@/assets/uep-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
