@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "QARYA — Hybrid Intelligence Design Allocator" },
+      { title: "QARYA | Hybrid Intelligence Design Allocator" },
       {
         name: "description",
         content:
