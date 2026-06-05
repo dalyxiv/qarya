@@ -15,6 +15,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const items = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
@@ -72,13 +73,16 @@ export function AppSidebar() {
             <div className="flex items-center gap-2">
               <span className="text-[9px] uppercase tracking-widest text-muted-foreground">A product of</span>
             </div>
-            <img src={lexelLogo} alt="LEXEL" className="h-6 w-auto object-contain opacity-90" />
+            <img src={lexelLogo} alt="LEXEL" className="theme-invert h-6 w-auto object-contain opacity-90" />
             <div className="pt-2 border-t border-white/5">
               <span className="text-[9px] uppercase tracking-widest text-muted-foreground">Master Thesis</span>
-              <img src={uepLogo} alt="UEP" className="mt-1 h-5 w-auto object-contain opacity-80" />
+              <img src={uepLogo} alt="UEP" className="theme-invert mt-1 h-5 w-auto object-contain opacity-80" />
               <div className="text-[9px] text-muted-foreground/70 mt-1 leading-tight">
                 Poznań University of<br />Economics & Business
               </div>
+            </div>
+            <div className="pt-2">
+              <ThemeToggle className="w-full" />
             </div>
             <div className="text-[9px] font-mono text-muted-foreground/70 pt-1">
               Developed by DALY · 2026 : 314
@@ -86,7 +90,7 @@ export function AppSidebar() {
           </div>
         ) : (
           <div className="px-2 py-3">
-            <img src={lexelLogo} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
+            <img src={lexelLogo} alt="LEXEL" className="theme-invert h-5 w-auto object-contain opacity-80" />
           </div>
         )}
       </SidebarFooter>
