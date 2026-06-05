@@ -8,7 +8,7 @@ export const Route = createFileRoute("/dashboard")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "QARYA — Design Resource Allocation" },
+      { title: "QARYA | Design Resource Allocation" },
       {
         name: "description",
         content:

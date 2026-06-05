@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/settings")({
   component: SettingsPage,
-  head: () => ({ meta: [{ title: "Settings — QARYA" }] }),
+  head: () => ({ meta: [{ title: "Settings | QARYA" }] }),
 });
 
 function SettingsPage() {
