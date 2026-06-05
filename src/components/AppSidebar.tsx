@@ -80,6 +80,9 @@ export function AppSidebar() {
               <div className="text-[9px] text-muted-foreground/70 mt-1 leading-tight">
                 Poznań University of<br />Economics & Business
               </div>
+              <div className="text-[9px] text-primary/80 mt-1 leading-tight">
+                Supervisor: Robert Romanowski
+              </div>
             </div>
             <div className="pt-2">
               <ThemeToggle className="w-full" />
