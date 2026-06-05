@@ -3,5 +3,6 @@
   "name": "qarya",
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
-  "main": "src/server.ts",
+  // Change this from "src/server.ts" to your build output path:
+  "main": ".output/server/index.mjs" 
 }
