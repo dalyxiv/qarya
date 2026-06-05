@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/settings")({
   component: SettingsPage,
-  head: () => ({ meta: [{ title: "Settings — QARYA" }] }),
+  head: () => ({ meta: [{ title: "Settings | QARYA" }] }),
 });
 
 function SettingsPage() {
@@ -20,7 +20,7 @@ function SettingsPage() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>Workspace name</Label>
-              <Input defaultValue="QARYA — Machinery Division" />
+              <Input defaultValue="QARYA | Machinery Division" />
             </div>
             <div className="space-y-2">
               <Label>Parent company</Label>

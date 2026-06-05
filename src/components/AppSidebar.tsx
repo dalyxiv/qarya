@@ -34,7 +34,7 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-white/5">
-        <div className="flex items-center gap-2 px-2 py-3">
+        <Link to="/" className="flex items-center gap-2 px-2 py-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white p-1 shadow-[0_0_25px_-4px_var(--primary)]">
             <img src={eldalyLogo} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
@@ -44,7 +44,7 @@ export function AppSidebar() {
               <span className="text-[10px] text-muted-foreground">Hybrid Intelligence</span>
             </div>
           )}
-        </div>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -79,6 +79,9 @@ export function AppSidebar() {
               <img src={uepLogo} alt="UEP" className="theme-invert mt-1 h-5 w-auto object-contain opacity-80" />
               <div className="text-[9px] text-muted-foreground/70 mt-1 leading-tight">
                 Poznań University of<br />Economics & Business
+              </div>
+              <div className="text-[9px] text-primary/80 mt-1 leading-tight">
+                Supervisor: Robert Romanowski
               </div>
             </div>
             <div className="pt-2">

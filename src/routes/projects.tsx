@@ -7,7 +7,7 @@ import { Plus, Brain, Cpu, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/projects")({
   component: ProjectsPage,
-  head: () => ({ meta: [{ title: "Active Projects — QARYA" }] }),
+  head: () => ({ meta: [{ title: "Active Projects | QARYA" }] }),
 });
 
 const projects = [

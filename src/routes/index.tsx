@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "QARYA — Hybrid Intelligence Design Allocator" },
+      { title: "QARYA | Hybrid Intelligence Design Allocator" },
       {
         name: "description",
         content:
@@ -121,6 +121,9 @@ function Landing() {
           <span className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
             Master Thesis Project · Poznań University of Economics & Business
           </span>
+          <span className="text-[11px] uppercase tracking-[0.2em] text-primary/80">
+            Thesis Supervisor: Robert Romanowski
+          </span>
         </motion.div>
 
         <motion.h1
@@ -143,7 +146,7 @@ function Landing() {
           custom={2}
           className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg"
         >
-          QARYA allocates every design task to its optimal executor — Human, AI, or a Hybrid team —
+          QARYA allocates every design task to its optimal executor - Human, AI, or a Hybrid team -
           using a real-time decision network engineered for the machinery sector.
         </motion.p>
 
