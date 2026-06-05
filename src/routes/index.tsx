@@ -16,6 +16,7 @@ import {
 import eldalyLogo from "@/assets/eldaly-logo.png";
 import lexelLogo from "@/assets/lexel-logo.png";
 import uepLogo from "@/assets/uep-logo.png";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -82,15 +83,18 @@ function Landing() {
           <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
           <a href="#metrics" className="hover:text-foreground transition-colors">Metrics</a>
         </nav>
-        <Button
-          asChild
-          size="sm"
-          className="gap-1.5 shadow-[0_0_30px_-6px_var(--primary)] hover:shadow-[0_0_40px_-4px_var(--primary)] transition-shadow"
-        >
-          <Link to="/dashboard">
-            Launch Dashboard <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button
+            asChild
+            size="sm"
+            className="gap-1.5 shadow-[0_0_30px_-6px_var(--primary)] hover:shadow-[0_0_40px_-4px_var(--primary)] transition-shadow"
+          >
+            <Link to="/dashboard">
+              Launch Dashboard <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
       </header>
 
       {/* Hero */}
@@ -113,7 +117,7 @@ function Landing() {
           custom={0}
           className="mx-auto mb-8 flex flex-col items-center gap-2"
         >
-          <img src={uepLogo} alt="Poznań University of Economics and Business" className="h-14 w-auto object-contain opacity-90" />
+          <img src={uepLogo} alt="Poznań University of Economics and Business" className="theme-invert h-14 w-auto object-contain opacity-90" />
           <span className="text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
             Master Thesis Project · Poznań University of Economics & Business
           </span>
@@ -331,11 +335,11 @@ function Landing() {
       <footer className="relative z-10 border-t border-white/5 bg-card/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-muted-foreground md:flex-row">
           <div className="flex items-center gap-3">
-            <img src={lexelLogo} alt="LEXEL" className="h-5 w-auto object-contain opacity-80" />
+            <img src={lexelLogo} alt="LEXEL" className="theme-invert h-5 w-auto object-contain opacity-80" />
             <span>A LEXEL company</span>
           </div>
           <div className="flex items-center gap-3 text-center">
-            <img src={uepLogo} alt="UEP" className="h-6 w-auto object-contain opacity-80" />
+            <img src={uepLogo} alt="UEP" className="theme-invert h-6 w-auto object-contain opacity-80" />
             <span>Master Thesis · Poznań University of Economics & Business</span>
           </div>
           <div className="font-mono">Developed by DALY · 2026 : 314</div>
