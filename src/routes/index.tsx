@@ -328,7 +328,7 @@ function Landing() {
               </div>
               <div className="text-center sm:text-left">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-primary">Thesis Supervisor</div>
-                <h3 className="mt-1 text-xl font-bold">Dr hab. Robert Romanowski, Professor UEP</h3>
+                <h3 className="mt-1 text-xl font-bold">Dr hab. Robert Romanowski</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Department of Commerce and Marketing</p>
                 <p className="mt-1 text-xs text-muted-foreground">Poznań University of Economics & Business</p>
                 <div className="mt-4 space-y-1 text-sm">
