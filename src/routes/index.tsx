@@ -127,7 +127,7 @@ function Landing() {
             Master Thesis Project · Poznań University of Economics & Business
           </span>
           <span className="text-[11px] uppercase tracking-[0.2em] text-primary/80">
-            Thesis Supervisor: Robert Romanowski
+            Thesis Supervisor: Dr hab. Robert Romanowski
           </span>
         </motion.div>
 
