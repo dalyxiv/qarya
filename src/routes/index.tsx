@@ -16,6 +16,8 @@ import {
 import eldalyLogo from "@/assets/eldaly-logo.png";
 import lexelLogo from "@/assets/lexel-logo.png";
 import uepLogo from "@/assets/uep-logo.png";
+import romanowskiPhoto from "@/assets/romanowski.png";
+import mostafaPhoto from "@/assets/mostafa-eldaly.jpg";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Route = createFileRoute("/")({
@@ -64,16 +66,16 @@ function Landing() {
       />
 
       {/* Nav */}
-      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white p-1.5 shadow-[0_0_25px_-4px_var(--primary)]">
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between gap-2 px-4 py-4 md:px-6 md:py-5">
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
+          <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-white p-1.5 shadow-[0_0_25px_-4px_var(--primary)]">
             <img src={eldalyLogo} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-bold tracking-[0.25em] bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
               QARYA
             </span>
-            <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
+            <span className="hidden sm:block text-[10px] uppercase tracking-widest text-muted-foreground">
               Hybrid Intelligence
             </span>
           </div>
@@ -81,6 +83,7 @@ function Landing() {
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
           <a href="#how" className="hover:text-foreground transition-colors">How it works</a>
+          <a href="#team" className="hover:text-foreground transition-colors">Team</a>
           <a href="#metrics" className="hover:text-foreground transition-colors">Metrics</a>
         </nav>
         <div className="flex items-center gap-2">
@@ -88,10 +91,12 @@ function Landing() {
           <Button
             asChild
             size="sm"
-            className="gap-1.5 shadow-[0_0_30px_-6px_var(--primary)] hover:shadow-[0_0_40px_-4px_var(--primary)] transition-shadow"
+            className="gap-1.5 shadow-[0_0_30px_-6px_var(--primary)] hover:shadow-[0_0_40px_-4px_var(--primary)] transition-shadow whitespace-nowrap"
           >
             <Link to="/dashboard">
-              Launch Dashboard <ArrowRight className="h-4 w-4" />
+              <span className="hidden sm:inline">Launch Dashboard</span>
+              <span className="sm:hidden">Launch</span>
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
         </div>
