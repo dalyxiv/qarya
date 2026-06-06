@@ -34,8 +34,11 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="border-b border-white/5">
-        <Link to="/" className="flex items-center gap-2 px-2 py-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-white p-1 shadow-[0_0_25px_-4px_var(--primary)]">
+        <Link
+          to="/"
+          className={`flex items-center ${collapsed ? "justify-center px-0 py-2" : "gap-2 px-2 py-3"}`}
+        >
+          <div className={`flex ${collapsed ? "h-7 w-7" : "h-9 w-9"} items-center justify-center rounded-md bg-white p-1 shadow-[0_0_25px_-4px_var(--primary)] shrink-0`}>
             <img src={eldalyLogo} alt="Eldaly" className="h-full w-full object-contain" />
           </div>
           {!collapsed && (
