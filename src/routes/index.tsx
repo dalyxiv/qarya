@@ -323,8 +323,8 @@ function Landing() {
           {/* Supervisor */}
           <div className="group rounded-3xl border border-white/10 bg-gradient-to-br from-card/60 to-card/20 p-6 md:p-8 backdrop-blur-xl shadow-[0_0_60px_-20px_var(--primary)] transition-all hover:-translate-y-1 hover:border-primary/40">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
-              <div className="relative h-32 w-32 sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-2xl ring-2 ring-primary/30 shadow-[0_0_30px_-8px_var(--primary)]">
-                <img src={romanowskiPhoto} alt="Robert Romanowski" className="h-full w-full object-cover" />
+              <div className="relative h-40 w-32 sm:h-44 sm:w-36 shrink-0 overflow-hidden rounded-2xl ring-2 ring-primary/30 shadow-[0_0_30px_-8px_var(--primary)]">
+                <img src={romanowskiPhoto} alt="Dr hab. Robert Romanowski" className="h-full w-full object-contain" />
               </div>
               <div className="text-center sm:text-left">
                 <div className="text-[10px] uppercase tracking-[0.25em] text-primary">Thesis Supervisor</div>
