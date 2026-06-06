@@ -310,6 +310,64 @@ function Landing() {
       </section>
 
       {/* CTA */}
+      {/* Team */}
+      <section id="team" className="relative z-10 mx-auto max-w-6xl px-4 md:px-6 pb-20 md:pb-28">
+        <div className="mb-10 text-center">
+          <div className="text-xs uppercase tracking-[0.3em] text-primary">Team</div>
+          <h2 className="mt-3 text-3xl font-bold md:text-4xl">The people behind QARYA</h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+            A Master Thesis project at Poznań University of Economics & Business.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Supervisor */}
+          <div className="group rounded-3xl border border-white/10 bg-gradient-to-br from-card/60 to-card/20 p-6 md:p-8 backdrop-blur-xl shadow-[0_0_60px_-20px_var(--primary)] transition-all hover:-translate-y-1 hover:border-primary/40">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+              <div className="relative h-32 w-32 sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-2xl ring-2 ring-primary/30 shadow-[0_0_30px_-8px_var(--primary)]">
+                <img src={romanowskiPhoto} alt="Robert Romanowski" className="h-full w-full object-cover" />
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="text-[10px] uppercase tracking-[0.25em] text-primary">Thesis Supervisor</div>
+                <h3 className="mt-1 text-xl font-bold">Dr hab. Robert Romanowski, Professor UEP</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Department of Commerce and Marketing</p>
+                <p className="mt-1 text-xs text-muted-foreground">Poznań University of Economics & Business</p>
+                <div className="mt-4 space-y-1 text-sm">
+                  <a href="mailto:Robert.Romanowski@ue.poznan.pl" className="block text-primary hover:underline break-all">
+                    Robert.Romanowski@ue.poznan.pl
+                  </a>
+                  <a href="tel:+48618569445" className="block text-muted-foreground hover:text-foreground">
+                    +48 61 856 94 45
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Author */}
+          <div className="group rounded-3xl border border-white/10 bg-gradient-to-br from-card/60 to-card/20 p-6 md:p-8 backdrop-blur-xl shadow-[0_0_60px_-20px_var(--hybrid)] transition-all hover:-translate-y-1 hover:border-primary/40">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+              <div className="relative h-32 w-32 sm:h-36 sm:w-36 shrink-0 overflow-hidden rounded-2xl ring-2 ring-[color:var(--hybrid)]/40 shadow-[0_0_30px_-8px_var(--hybrid)]">
+                <img src={mostafaPhoto} alt="Mostafa ElDaly" className="h-full w-full object-cover object-top" />
+              </div>
+              <div className="text-center sm:text-left">
+                <div className="text-[10px] uppercase tracking-[0.25em] text-[color:var(--hybrid)]">Author</div>
+                <h3 className="mt-1 text-xl font-bold">Mostafa ElDaly</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Master's Student · Innovation Management</p>
+                <p className="mt-1 text-xs text-muted-foreground">Poznań University of Economics & Business</p>
+                <div className="mt-4 space-y-1 text-sm">
+                  <a href="mailto:99790@student.ue.poznan.pl" className="block text-primary hover:underline break-all">
+                    99790@student.ue.poznan.pl
+                  </a>
+                  <a href="tel:+48453112269" className="block text-muted-foreground hover:text-foreground">
+                    +48 453 112 269
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative z-10 mx-auto max-w-4xl px-6 pb-32 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
