@@ -10,14 +10,19 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Info, Brain, Cpu, Sparkles } from "lucide-react";
+import { Info, Brain, Cpu, Sparkles, Wand2, Loader2 } from "lucide-react";
 import { NeuralNetwork } from "./NeuralNetwork";
+import { useServerFn } from "@tanstack/react-start";
+import { suggestParams } from "@/lib/suggest-params.functions";
+import { toast } from "sonner";
 
 type Params = {
   empathy: number;
@@ -85,6 +90,38 @@ export function Allocator() {
     speed: 50,
     budget: 50,
   });
+  const [prompt, setPrompt] = useState("");
+  const [loadingAi, setLoadingAi] = useState(false);
+  const [aiReason, setAiReason] = useState<string | null>(null);
+  const runSuggest = useServerFn(suggestParams);
+
+  async function handleSuggest() {
+    if (prompt.trim().length < 3) {
+      toast.error("Please describe the task first.");
+      return;
+    }
+    setLoadingAi(true);
+    setAiReason(null);
+    try {
+      const res = await runSuggest({ data: { prompt } });
+      setParams({
+        empathy: res.empathy,
+        concept: res.concept,
+        optimization: res.optimization,
+        speed: res.speed,
+        budget: res.budget,
+      });
+      setAiReason(res.reasoning);
+      toast.success(`AI suggests: ${res.recommended}`);
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : "Failed to analyze task";
+      if (msg.includes("429")) toast.error("Rate limit reached. Try again shortly.");
+      else if (msg.includes("402")) toast.error("AI credits exhausted. Add credits in Settings.");
+      else toast.error(msg);
+    } finally {
+      setLoadingAi(false);
+    }
+  }
 
   const alloc = useMemo(() => computeAllocation(params), [params]);
 
@@ -130,6 +167,37 @@ export function Allocator() {
 
   return (
     <TooltipProvider delayDuration={150}>
+      <Card className="mb-6 shadow-elegant backdrop-blur-sm bg-card/80 border-white/5">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-base">
+            <Wand2 className="h-4 w-4 text-primary" />
+            Describe your task — AI will set the parameters
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <Textarea
+            value={prompt}
+            onChange={(e) => setPrompt(e.target.value)}
+            placeholder="e.g. Design an ergonomic harvesting machine cabin for elderly farmers in eastern Europe, tight budget, 6-week deadline..."
+            className="min-h-[90px] bg-background/50 resize-none"
+            disabled={loadingAi}
+          />
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+            <Button
+              onClick={handleSuggest}
+              disabled={loadingAi}
+              className="gap-2 shadow-[0_0_25px_-8px_var(--primary)]"
+            >
+              {loadingAi ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
+              {loadingAi ? "Analyzing..." : "Auto-set parameters"}
+            </Button>
+            {aiReason && (
+              <p className="text-xs text-muted-foreground sm:flex-1">{aiReason}</p>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
       <div className="grid gap-6 lg:grid-cols-2">
         {/* LEFT COLUMN */}
         <div className="space-y-6">
