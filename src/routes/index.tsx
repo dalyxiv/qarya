@@ -103,7 +103,7 @@ function Landing() {
       </header>
 
       {/* Hero */}
-      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-28 text-center md:pt-24">
+      <section className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 pt-12 md:pt-24 pb-20 md:pb-28 text-center">
         <motion.div
           initial="hidden"
           animate="show"
@@ -136,7 +136,7 @@ function Landing() {
           animate="show"
           variants={fadeUp}
           custom={1}
-          className="mx-auto max-w-4xl text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl"
+          className="mx-auto max-w-4xl text-4xl sm:text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl"
         >
           The intelligence layer for{" "}
           <span className="bg-gradient-to-r from-primary via-[color-mix(in_oklab,var(--primary)_70%,var(--hybrid))] to-[color-mix(in_oklab,var(--hybrid)_80%,white)] bg-clip-text text-transparent">
