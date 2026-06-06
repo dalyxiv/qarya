@@ -84,7 +84,7 @@ export function AppSidebar() {
                 Poznań University of<br />Economics & Business
               </div>
               <div className="text-[9px] text-primary/80 mt-1 leading-tight">
-                Supervisor: Robert Romanowski
+                Supervisor: Dr hab. Robert Romanowski
               </div>
             </div>
             <div className="pt-2">
